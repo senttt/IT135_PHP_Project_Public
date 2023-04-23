@@ -7,12 +7,24 @@
         <title>Barangay 872, Pandacan | Official Website </title>
         <!-- BOOTSTRAP -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    
+        <style>
+            .divider {
+                height: 3rem;
+                background-color: rgba(0, 0, 0, .1);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 1px 0;
+                box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+            }
+        </style>
     </head>
     <body>
         <!-- BOOTSTRAP JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>        
+        
+        <!-- NAVBAR START -->
         <div class="container py-3 px-0">
-            <!-- NAVBAR START -->
             <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                 <a href="home.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
                     <img src="assets/img/logo.png" height="80px" width="auto">
@@ -33,15 +45,13 @@
                     <li class="nav-item"><a class="nav-link px-2 link-dark " href="login.php">Login</a></li>
                     <li class="nav-item"><a class="nav-link px-2 link-dark " href="signup.php">Sign-up</a></li>
                 </ul>
-
-                <!-- <div class="col-md-3 text-end">
-                    <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                    <button type="button" class="btn btn-primary">Sign-up</button>
-                </div> -->
+                
             </header>
-            <!-- NAVBAR END -->
+        </div>
+        <!-- NAVBAR END -->
 
-            <!-- JUMBOTRON START -->
+        <!-- JUMBOTRON START -->
+        <div class="container-fluid py-3 px-0">
             <div class="p-5 mb-4 bg-light rounded-3">
                 <div class="container-fluid py-5">
                     <h1 class="display-5 fw-bold text-center">Barangay 872, Pancadan, Manila</h1>
@@ -52,21 +62,32 @@
                     </div>
                 </div>
             </div>
-            <!-- JUMBOTRON END -->
+        </div>
+        <!-- JUMBOTRON END -->
 
-            <!-- SHORT ABOUT US START -->
-            <!-- SHORT ABOUT US END -->
+        <div class="divider"></div>
 
-            <!-- FEATURED PROJECT START -->
-            <!-- FEATURED PROJECT END -->
+        <!-- SHORT ABOUT US START -->
+        <div class="container-fluid py-3 px-0">
+            <div class="px-4 pt-5 my-5 text-center border-bottom">
+                
+            </div>
+        </div>
+        <!-- SHORT ABOUT US END -->
 
-            <!-- HERITAGE SITES START -->
-            <!-- HERITAGE SITES END -->
+        <div class="divider"></div>
 
-            <!-- MEET OUR BRGY COUNCIL START -->
-            <!-- MEET OUR BRGY COUNCIL END -->
+        <!-- FEATURED PROJECT START -->
+        <!-- FEATURED PROJECT END -->
 
-            <!-- FOOTER START -->
+        <!-- HERITAGE SITES START -->
+        <!-- HERITAGE SITES END -->
+
+        <!-- MEET OUR BRGY COUNCIL START -->
+        <!-- MEET OUR BRGY COUNCIL END -->
+
+        <!-- FOOTER START -->
+        <div class="container-fluid py-3 px-0">
             <footer class="footer mt-auto py-3 bg-light">
                 <div class="container-fluid py-5">
                     <div class="row px-5">
@@ -75,7 +96,7 @@
                             <h3 class="text-center">About Us</h3>
                             <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada consectetur nibh.</span>
                         </div>
-                        <div class="mx-auto col-md-2">
+                        <div class="mx-auto col-md-3">
                             <h3 class="text-center">Links</h3>
                             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
                                 <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
@@ -89,14 +110,16 @@
                             <h3 class="text-center">Contact Us</h3>
                             <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada consectetur nibh.</span>
                         </div>
-                        <div class="mx-auto col-md-4">
+                        <div class="mx-auto col-md-3">
                             <h3 class="text-center">Location</h3>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.28219962877!2d121.00253820000002!3d14.582989050000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c993b7ce58bf%3A0x32d5ccfe4b774f6d!2sBrgy.%20872%2C%20Pandacan%2C%20Manila%2C%201011%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682255049225!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="embed-responsive text-center">
+                                <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.28219962877!2d121.00253820000002!3d14.582989050000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c993b7ce58bf%3A0x32d5ccfe4b774f6d!2sBrgy.%20872%2C%20Pandacan%2C%20Manila%2C%201011%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682255049225!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
             </footer>
-            <!-- FOOTER END -->
         </div>
+        <!-- FOOTER END -->
     </body>
 </html>
