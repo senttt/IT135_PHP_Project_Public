@@ -51,8 +51,8 @@
         <!-- NAVBAR END -->
 
         <!-- JUMBOTRON START -->
-        <div class="container-fluid py-3 px-0">
-            <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid pt-3 px-0">
+            <div class="py-5 bg-light rounded-3">
                 <div class="container-fluid py-5">
                     <h1 class="display-5 fw-bold text-center">Barangay 872, Pancadan, Manila</h1>
                     <div class="mx-auto" style="width: 1000px">
@@ -69,8 +69,8 @@
 
         <!-- SHORT ABOUT US START -->
         <div class="container-fluid py-3 px-0">
-            <div class="px-4 pt-5 my-5 text-center border-bottom">
-                
+            <div class="px-4 pt-5 my-5 text-center">
+
             </div>
         </div>
         <!-- SHORT ABOUT US END -->
@@ -78,16 +78,37 @@
         <div class="divider"></div>
 
         <!-- FEATURED PROJECT START -->
+        <div class="container-fluid py-3 px-0">
+            <div class="px-4 pt-5 my-5 text-center">
+                
+            </div>
+        </div>
         <!-- FEATURED PROJECT END -->
 
+        <div class="divider"></div>
+
         <!-- HERITAGE SITES START -->
+        <div class="container-fluid py-3 px-0">
+            <div class="px-4 pt-5 my-5 text-center">
+                
+            </div>
+        </div>
         <!-- HERITAGE SITES END -->
+        
+        <div class="divider"></div>
 
         <!-- MEET OUR BRGY COUNCIL START -->
+        <div class="container-fluid py-3 px-0">
+            <div class="px-4 pt-5 my-5 text-center">
+                
+            </div>
+        </div>
         <!-- MEET OUR BRGY COUNCIL END -->
 
+        <div class="divider"></div>
+
         <!-- FOOTER START -->
-        <div class="container-fluid py-3 px-0">
+        <div class="container-fluid pb-2 px-0">
             <footer class="footer mt-auto py-3 bg-light">
                 <div class="container-fluid py-5">
                     <div class="row px-5">
