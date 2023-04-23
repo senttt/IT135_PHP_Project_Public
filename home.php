@@ -54,12 +54,24 @@
             </div>
             <!-- JUMBOTRON END -->
 
+            <!-- SHORT ABOUT US START -->
+            <!-- SHORT ABOUT US END -->
+
+            <!-- FEATURED PROJECT START -->
+            <!-- FEATURED PROJECT END -->
+
+            <!-- HERITAGE SITES START -->
+            <!-- HERITAGE SITES END -->
+
+            <!-- MEET OUR BRGY COUNCIL START -->
+            <!-- MEET OUR BRGY COUNCIL END -->
 
             <!-- FOOTER START -->
             <footer class="footer mt-auto py-3 bg-light">
                 <div class="container-fluid py-5">
                     <div class="row px-5">
                         <div class="mx-auto col-md-3">
+                            <!-- EVEN SHORTER SUMMARY OF ABOUT US -->
                             <h3 class="text-center">About Us</h3>
                             <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada consectetur nibh.</span>
                         </div>
