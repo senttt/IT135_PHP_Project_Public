@@ -25,7 +25,7 @@
         
         <!-- NAVBAR START -->
         <div class="container py-3 px-0">
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
                 <a href="home.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
                     <img src="assets/img/logo.png" height="80px" width="auto">
                 </a>
@@ -51,13 +51,13 @@
         <!-- NAVBAR END -->
 
         <!-- JUMBOTRON START -->
-        <div class="container-fluid pt-3 px-0">
+        <div class="container-fluid px-0">
             <div class="py-5 bg-light rounded-3">
                 <div class="container-fluid py-5">
                     <h1 class="display-5 fw-bold text-center">Barangay 872, Pancadan, Manila</h1>
                     <div class="mx-auto" style="width: 1000px">
                         <p class="fs-4 text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.
                         </p>
                     </div>
                 </div>
@@ -67,23 +67,75 @@
 
         <div class="divider"></div>
 
-        <!-- SHORT ABOUT US START -->
+        <!-- ANNOUNCEMENTS START -->
         <div class="container-fluid py-3 px-0">
-            <div class="px-4 pt-5 my-5 text-center">
 
+            <div class="px-4 py-5 mt-5 text-center">
+                <h1 class="display-5 fw-bold">News and Announcements</h1>
+            </div>
+
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+
+                                <div class="card-body">
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+
+                                <div class="card-body">
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+
+                                <div class="card-body">
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ANNOUNCEMENTS END -->
+
+        <div class="divider"></div>
+        
+        <!-- SHORT ABOUT US START -->
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-lg-6">
+                    <h3 class="display-5 fw-bold lh-1 mb-3 text-center">About Us</h3>
+                    <p class="lead text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.
+                    </p>
+                </div>
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="assets\img\sample.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                </div>
             </div>
         </div>
         <!-- SHORT ABOUT US END -->
-
-        <div class="divider"></div>
-
-        <!-- FEATURED PROJECT START -->
-        <div class="container-fluid py-3 px-0">
-            <div class="px-4 pt-5 my-5 text-center">
-                
-            </div>
-        </div>
-        <!-- FEATURED PROJECT END -->
 
         <div class="divider"></div>
 
