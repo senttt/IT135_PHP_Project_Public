@@ -75,9 +75,9 @@
             </div>
 
             <div class="album py-5 bg-light">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col">
+                <div class="container mx-auto">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-center">
+                        <div class="col text-center mx-auto">
                             <div class="card shadow-sm">
                                 <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
 
@@ -89,7 +89,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+
+                        <div class="col text-center mx-auto">
                             <div class="card shadow-sm">
                                 <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
 
@@ -101,7 +102,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+
+                        <div class="col text-center mx-auto">
                             <div class="card shadow-sm">
                                 <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
 
@@ -113,6 +115,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
