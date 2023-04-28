@@ -69,10 +69,20 @@
                 <div class="row bg-light p-3">
                     <div class="col-sm-6">
                         <form method="post">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
-                            </div>
+                            <div class="row bg-light p-0">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="firstname">First Name</label>
+                                        <input type="text" class="form-control" id="firstname" name="firstname" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Last Name</label>
+                                        <input type="text" class="form-control" id="lastname" name="lastname" required>
+                                    </div>
+                                </div>
+                            </div>      
                             <div class="form-group">
                                 <label for="email">Email address</label>
                                 <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
@@ -126,28 +136,35 @@
 
 		 
 		// GET FORM FOR DATABASE 
-		  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$name = $_POST['name'];
-			$email = $_POST['email'];
-			$phone = $_POST['phone'];
-			$Date = $_POST['Date'];
-			$Time = $_POST['Time'];
-			$message = $_POST['message'];
-			//sql query
-			   $sql = "INSERT INTO booking (name, email, phone, date,time,message) VALUES ('$name', '$email', '$phone', '$Date','$Time','$message')";
-
-            if ($conn->query($sql) === TRUE) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $Date = $_POST['Date'];
+            $Time = $_POST['Time'];
+            $message = $_POST['message'];
+            
+            // check if required fields are empty
+            if (!empty($firstname) && !empty($lastname) &&!empty($email) && !empty($phone) && !empty($Date) && !empty($Time)) {
+              //sql query
+              $sql = "INSERT INTO booking (firstName, lastName, email, phone, date, time, message) VALUES ('$firstname', '$lastname', '$email', '$phone', '$Date', '$Time', '$message')";
+            
+              if ($conn->query($sql) === TRUE) {
                 echo "<script>alert('Appointment booked successfully');</script>";
-            } else {
+              } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
+              }
+            } else {
+              echo "<script>alert('Please fill all required fields');</script>";
             }
-              
-			} else {
-				
-			}
-			// Close connection
-				$conn->close();
-			?>
+          } else {
+            // form not submitted
+          }
+          // Close connection
+          $conn->close();
+        
+        ?>
 		 <!-- GET FORM FOR DATABASE END -->
         </body>
 
