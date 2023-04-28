@@ -110,7 +110,7 @@
 	
 		 <!-- DATABASE CONNECTION -->
 		
-			<?php
+		<?php
 		// Establish connection to database
 		$servername = "localhost";
 		$username = "root";
@@ -127,7 +127,7 @@
 		 
 		// GET FORM FOR DATABASE 
 		  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-				$name = $_POST['name'];
+			$name = $_POST['name'];
 			$email = $_POST['email'];
 			$phone = $_POST['phone'];
 			$Date = $_POST['Date'];
@@ -136,11 +136,12 @@
 			//sql query
 			   $sql = "INSERT INTO booking (name, email, phone, date,time,message) VALUES ('$name', '$email', '$phone', '$Date','$Time','$message')";
 
-				if ($conn->query($sql) === TRUE) {
-					echo "Appointment booked successfully";
-				} else {
-					echo "Error: " . $sql . "<br>" . $conn->error;
-				}
+            if ($conn->query($sql) === TRUE) {
+                echo "<script>alert('Appointment booked successfully');</script>";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+              
 			} else {
 				
 			}
