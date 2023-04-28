@@ -115,7 +115,7 @@
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
-		$dbname = "appointments";
+		$dbname = "BarangayWebsite";
 
 		$conn = new mysqli($servername, $username, $password, $dbname);
 
