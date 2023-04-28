@@ -68,35 +68,35 @@
             <div class ="container-fluid border-top border-bottom">
                 <div class="row bg-light p-3">
                     <div class="col-sm-6">
-                        <form>
+                        <form method="post">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" required>
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="tel" class="form-control" id="phone" required>
+                                <input type="tel" class="form-control"name="phone" id="phone" required>
                             </div>
                             <div class="form-group">
                             <label for="message">Reason for Appointment:</label>
-                                <textarea class="form-control" id="message" rows="3" required></textarea>
+                                <textarea class="form-control" name="message"id="message" rows="3" required></textarea>
                             </div>
                      </div>
                      <div class="col-sm-6">
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" class="form-control" id="myDate" required>
+                            <input type="date" class="form-control" name="Date" id="myDate" required>
                             <small id="emailHelp" class="form-text text-muted">The office is only open from Monday to Friday (7:30 am to 4:00 pm)</small>
 
                         </div>
                         <div class="form-group">
                             <label for="time">Time</label>
-                            <input type="time" class="form-control" id="myTime" min="07:30" max="16:00" step="1800" required>
+                            <input type="time" class="form-control" name="Time" id="myTime" min="07:30" max="16:00" step="1800" required>
                         </div>
                      </div>                     
                 </div>
@@ -107,6 +107,47 @@
             </div>
         </div>
         <!-- APPOINTMENT FORM END -->
+	
+		 <!-- DATABASE CONNECTION -->
+		
+			<?php
+		// Establish connection to database
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "appointments";
+
+		$conn = new mysqli($servername, $username, $password, $dbname);
+
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+
+		 
+		// GET FORM FOR DATABASE 
+		  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				$name = $_POST['name'];
+			$email = $_POST['email'];
+			$phone = $_POST['phone'];
+			$Date = $_POST['Date'];
+			$Time = $_POST['Time'];
+			$message = $_POST['message'];
+			//sql query
+			   $sql = "INSERT INTO booking (name, email, phone, date,time,message) VALUES ('$name', '$email', '$phone', '$Date','$Time','$message')";
+
+				if ($conn->query($sql) === TRUE) {
+					echo "Appointment booked successfully";
+				} else {
+					echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+			} else {
+				
+			}
+			// Close connection
+				$conn->close();
+			?>
+		 <!-- GET FORM FOR DATABASE END -->
         </body>
 
         <!-- JS CODE FOR USERS TO ONLY PICK WEEKDAYS -->
