@@ -132,6 +132,9 @@
                     <p class="lead text-center">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.
                     </p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                        <a class="btn btn-primary" href="about.php" role="button">Learn More</a>
+                    </div>
                 </div>
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img src="assets\img\sample.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
@@ -144,9 +147,56 @@
 
         <!-- HERITAGE SITES START -->
         <div class="container-fluid py-3 px-0">
-            <div class="px-4 pt-5 my-5 text-center">
-                
+
+        <div class="px-4 py-5 mt-5 text-center">
+            <h1 class="display-5 fw-bold">Heritage Sites</h1>
+        </div>
+
+        <div class="album py-5 bg-light">
+            <div class="container mx-auto">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-center">
+                    <div class="col text-center mx-auto">
+                        <div class="card shadow-sm">
+                            <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+                                <div class="card-body">
+                                    <h5 class="card-title">Site</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center mx-auto">
+                        <div class="card shadow-sm">
+                            <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+                                <div class="card-body">
+                                    <h5 class="card-title">Site</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center mx-auto">
+                        <div class="card shadow-sm">
+                            <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+                                <div class="card-body">
+                                    <h5 class="card-title">Site</h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+        </div>
         </div>
         <!-- HERITAGE SITES END -->
         
@@ -154,8 +204,55 @@
 
         <!-- MEET OUR BRGY COUNCIL START -->
         <div class="container-fluid py-3 px-0">
-            <div class="px-4 pt-5 my-5 text-center">
-                
+
+            <div class="px-4 py-5 mt-5 text-center">
+                <h1 class="display-5 fw-bold">Meet Our Barangay Council</h1>
+            </div>
+
+            <div class="album py-5 bg-light">
+                <div class="container mx-auto">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 text-center">
+                        <div class="col text-center mx-auto">
+                            <div class="card shadow-sm">
+                                <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Position</h5>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">9 mins</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col text-center mx-auto">
+                            <div class="card shadow-sm">
+                                <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Position</h5>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">9 mins</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col text-center mx-auto">
+                            <div class="card shadow-sm">
+                                <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Position</h5>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">9 mins</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
         <!-- MEET OUR BRGY COUNCIL END -->
