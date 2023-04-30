@@ -51,7 +51,7 @@
         <!-- NAVBAR END -->
 
         <!-- JUMBOTRON START -->
-        <div class="container-fluid px-0">
+        <div class="container-fluid px-0 border-top">
             <div class="py-5 bg-light rounded-3">
                 <div class="container-fluid py-5">
                     <h1 class="display-5 fw-bold text-center">Barangay 872, Pancadan, Manila</h1>
@@ -260,38 +260,40 @@
         <div class="divider"></div>
 
         <!-- FOOTER START -->
-        <div class="container-fluid pb-2 px-0">
-            <footer class="footer mt-auto py-3 bg-light">
-                <div class="container-fluid py-5">
-                    <div class="row px-5">
-                        <div class="mx-auto col-md-3">
-                            <!-- EVEN SHORTER SUMMARY OF ABOUT US -->
-                            <h3 class="text-center">About Us</h3>
-                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada consectetur nibh.</span>
-                        </div>
-                        <div class="mx-auto col-md-3">
-                            <h3 class="text-center">Links</h3>
-                            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
-                                <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
-                                <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
-                                <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
-                            </ul>
-                        </div>
-                        <div class="mx-auto col-md-3">
-                            <h3 class="text-center">Contact Us</h3>
-                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada consectetur nibh.</span>
-                        </div>
-                        <div class="mx-auto col-md-3">
-                            <h3 class="text-center">Location</h3>
-                            <div class="embed-responsive text-center">
-                                <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.28219962877!2d121.00253820000002!3d14.582989050000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c993b7ce58bf%3A0x32d5ccfe4b774f6d!2sBrgy.%20872%2C%20Pandacan%2C%20Manila%2C%201011%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682255049225!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="container-fluid pb-2 px-0 border-top bg-light">
+            <div class="container">
+                <footer class="footer mt-auto py-3">
+                    <div class="container-fluid py-5">
+                        <div class="row px-5">
+                            <div class="mx-auto col-md-3 px-3">
+                                <!-- EVEN SHORTER SUMMARY OF ABOUT US -->
+                                <h3 class="text-center">About Us</h3>
+                                <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada consectetur nibh.</span>
+                            </div>
+                            <div class="mx-auto col-md-3 px-3">
+                                <h3 class="text-center">Links</h3>
+                                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
+                                    <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
+                                    <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
+                                    <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
+                                    <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
+                                    <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
+                                </ul>
+                            </div>
+                            <div class="mx-auto col-md-3 px-3">
+                                <h3 class="text-center">Contact Us</h3>
+                                <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada consectetur nibh.</span>
+                            </div>
+                            <div class="mx-auto col-md-3 px-3">
+                                <h3 class="text-center">Location</h3>
+                                <div class="embed-responsive text-center">
+                                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.28219962877!2d121.00253820000002!3d14.582989050000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c993b7ce58bf%3A0x32d5ccfe4b774f6d!2sBrgy.%20872%2C%20Pandacan%2C%20Manila%2C%201011%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682255049225!5m2!1sen!2sph" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
         <!-- FOOTER END -->
     </body>

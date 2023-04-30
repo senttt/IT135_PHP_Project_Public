@@ -52,7 +52,7 @@
 
         <!-- <div class="divider"></div> -->
 
-        <section>
+        <section class="border-top">
             <div class="container-fluid bg-light">
                 <div class="container py-5">
                     <h1 class="">About Our Barangay</h1>
