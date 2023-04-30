@@ -32,7 +32,7 @@
 
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">About Us</a></li>
+                    <li><a href="about.php" class="nav-link px-2 link-dark">About Us</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown">
@@ -139,10 +139,10 @@
                             <h3 class="text-center">Links</h3>
                             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
                                 <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">About Us</a></li>
+                                <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
                                 <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
                                 <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
+                                <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
                             </ul>
                         </div>
                         <div class="mx-auto col-md-3">
