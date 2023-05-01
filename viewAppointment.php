@@ -16,12 +16,17 @@
         
         <!-- Calendar  JS -->
 
-        <!-- jQuery Is Reqired -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- CSS for full calender -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
+        <!-- JS for jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- JS for full calender -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+        <!-- bootstrap css and js -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 
-
-        <!-- GC-Calendar Plugin Files -->
-        <link rel="stylesheet" href="assets/calendar/dist/calendar-gc.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="assets/calendar/dist/calendar-gc.min.js"></script>
 
         <style>
@@ -128,53 +133,45 @@
         
         <!--SCRIPT FOR CALENDAR-->
         <script>
-        $(function (e) {
-            var calendar = $("#calendar").calendarGC({
-            dayBegin: 0,
-            prevIcon: '&#x3c;',
-            nextIcon: '&#x3e;',
-            onPrevMonth: function (e) {
-                console.log("prev");
-                console.log(e)
-            },
-            onNextMonth: function (e) {
-                console.log("next");
-                console.log(e)
-            },
-            events: [
-                {
-                date: new Date("2023-04-07"),
-                eventName: "Holiday",
-                className: "badge bg-danger",
-                onclick(e, data) {
-                    console.log(data);
-                },
-                dateColor: "red"
-                },
-                {
-                date: new Date("2023-04-07"),
-                eventName: "Holiday with wife",
-                className: "badge bg-danger",
-                onclick(e, data) {
-                    console.log(data);
-                },
-                dateColor: "red"
-                },
-                {
-                date: new Date("2023-04-08"),
-                eventName: "Working day",
-                className: "badge bg-success",
-                onclick(e, data) {
-                    console.log(data);
-                },
-                dateColor: "green"
+            $(document).ready(function() {
+                display_events();
+            }); //end document.ready block
+
+            function display_events() {
+                var events = new Array();
+            $.ajax({
+                url: 'display_event.php',  
+                dataType: 'json',
+                success: function (response) {
+                    
+                var result=response.data;
+                $.each(result, function (i, item) {
+                    events.push({
+                        id: result[i].id,
+                        title:"Name: "+ result[i].firstName+" "+result[i].lastName+"\n"+"reason: "+result[i].message,
+                        date: result[i].date,
+                    
+                        color: result[i].color,
+                    
+                    }); 	
+                })
+                var calendar = $('#calendar').fullCalendar({
+                    defaultView: 'month',
+                    timeZone: 'local',
+                    editable: true,
+                    selectable: true,
+                    selectHelper: true,
+                    events: events,
+                
+                    }); //end fullCalendar block	
+                },//end success block
+                error: function (xhr, status) {
+                alert(response.msg);
                 }
-            ],
-            onclickDate: function (e, data) {
-                console.log(e, data);
+                });//end ajax block	
             }
-            });
-        })
+
+
         </script>
     </body>
 </html>
