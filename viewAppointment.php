@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+        session_start();
+        include 'database.php';
+    ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +16,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
         <!-- JS -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
         
         <!-- Calendar  JS -->
 
-        <!-- CSS for full calender -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
-        <!-- JS for jQuery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- JS for full calender -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
-        <!-- bootstrap css and js -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="assets/calendar/dist/calendar-gc.min.js"></script>
+        <!-- GC-Calendar Plugin Files -->
+        <link rel="stylesheet" href="assets/calendar/dist/calendar-gc.min.css" />
 
         <style>
             .divider {
@@ -39,50 +35,52 @@
             }
         </style>
         <style>
-        /* The Modal (background) */
-        .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 100; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 100; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
 
-        /* Modal Content */
-        .modal-content {
-        background-color: #fefefe;
-        margin: 0 auto;
-        padding: 50px;
-        border: 1px solid #888;
-        width: 70%;
-        max-height: calc(100vh - 210px);
-            overflow-y: auto;
-            font-size:1.4em;
-            line-height:2;
-        }
+            /* Modal Content */
+            .modal-content {
+                background-color: #fefefe;
+                margin: 0 auto;
+                padding: 50px;
+                border: 1px solid #888;
+                width: 70%;
+                max-height: calc(100vh - 210px);
+                overflow-y: auto;
+                font-size:1.4em;
+                line-height:2;
+            }
 
-        /* The Close Button */
-        #close {
-        color: #aaaaaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        }
+            /* The Close Button */
+            #close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
 
-        #close:hover,
-        #close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-        }
+            #close:hover,
+            #close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
         </style>
     </head>
+    <script src="assets/calendar/dist/calendar-gc.min.js"></script>
+
     <body>
         <!-- BOOTSTRAP JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>        
@@ -130,48 +128,89 @@
                 </div>            
             </div>
         </div>
-        
+    </body>    
         <!--SCRIPT FOR CALENDAR-->
         <script>
-            $(document).ready(function() {
-                display_events();
-            }); //end document.ready block
-
-            function display_events() {
-                var events = new Array();
-            $.ajax({
-                url: 'display_event.php',  
-                dataType: 'json',
-                success: function (response) {
-                    
-                var result=response.data;
-                $.each(result, function (i, item) {
-                    events.push({
-                        id: result[i].id,
-                        title:"Name: "+ result[i].firstName+" "+result[i].lastName+"\n"+"reason: "+result[i].message,
-                        date: result[i].date,
-                    
-                        color: result[i].color,
-                    
-                    }); 	
-                })
-                var calendar = $('#calendar').fullCalendar({
-                    defaultView: 'month',
-                    timeZone: 'local',
-                    editable: true,
-                    selectable: true,
-                    selectHelper: true,
-                    events: events,
-                
-                    }); //end fullCalendar block	
-                },//end success block
-                error: function (xhr, status) {
-                alert(response.msg);
-                }
-                });//end ajax block	
+        $(function (e) {
+            var calendar = $("#calendar").calendarGC({
+            dayBegin: 0,
+            prevIcon: '&#x3c;',
+            nextIcon: '&#x3e;',
+            onPrevMonth: function (e) {
+                console.log("prev");
+                console.log(e)
+            },
+            onNextMonth: function (e) {
+                console.log("next");
+                console.log(e)
+            },
+            events: getEvents(),
+            onclickDate: function (e, data) {
+                console.log(e, data);
             }
+            });
+        })
 
+        function getEvents() {
+            var events = [];
+            <?php 
+              $query = "SELECT * FROM `booking`;";
+              if ($is_query_run = mysqli_query($connection, $query)){
+                while ($query_executed = mysqli_fetch_assoc($is_query_run)){
+            ?>
+                  var modal<?php echo $query_executed['id'] ?> = document.getElementById('myModal<?php echo $query_executed['id']?>');
+                  var btn<?php echo $query_executed['id']?> = document.getElementById('<?php echo $query_executed['id']?>');
+                  var span<?php echo $query_executed['id']?> = document.getElementsByClassName('close<?php echo $query_executed['id']?>')[0];
+                  span<?php echo $query_executed['id']?>.onclick = function() {
+                    modal<?php echo $query_executed['id']?>.style.display = 'none';
+                  }
 
+                  window.onclick = function(event) {
+                    if (event.target == modal<?php echo $query_executed['id']?>) {
+                      modal<?php echo $query_executed['id']?>.style.display = 'none';
+                    }
+                  }
+                  <?php
+                  echo "events.push({
+                          date: new Date('".$query_executed['date']."'),
+                          eventName: '".$query_executed['id']." | ".$query_executed['firstName']." ".$query_executed['lastName']." ',
+                          className: 'badge bg-danger',
+                          onclick(e, data) {
+                            modal".$query_executed['id'].".style.display = 'block';
+                            console.log(data);
+                          },
+                          dateColor: '#bf7521'
+                        });";
+                }
+              }
+            ?>
+            return events;
+          }
+
+          //getEvents()
         </script>
-    </body>
+
+        <?php
+            $query = "SELECT * FROM `booking`;";
+            if ($is_query_run = mysqli_query($connection, $query)){
+                while ($query_executed = mysqli_fetch_assoc($is_query_run)){
+                    echo "<div id='myModal".$query_executed['id']."' class='modal'>
+                        <div class='modal-content'>
+                            <div class='close".$query_executed['id']."' id='close'>&times;</div>
+                            <form action='delete.php?id=".$query_executed['id']."' method='POST'>
+                            <h1 style='text-align:center'>Appointment No. ".$query_executed['id']."</h1>
+                            <b>Name:</b> ".$query_executed['firstName']." ".$query_executed['lastName']."<br>
+                            <b>Email:</b> ".$query_executed['email']."<br>
+                            <b>Phone:</b> ".$query_executed['phone']."<br>
+                            <b>Date:</b> ".$query_executed['date']."<br>
+                            <b>Message:</b> ".$query_executed['message']."<br>
+                            <br><center><div class='col-12'>
+                                        <input type='submit' name='submit' class='btn btn-success btn-lg btn-warning' value='Delete'></button>
+                                    </div></center>
+                        </div>
+                    </div>
+                    </form>";
+                }
+            }
+        ?>
 </html>
