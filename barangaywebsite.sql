@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2023 at 04:17 PM
+-- Generation Time: May 02, 2023 at 06:07 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -37,6 +37,30 @@ CREATE TABLE `booking` (
   `time` time NOT NULL,
   `message` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `heritage`
+--
+
+CREATE TABLE `heritage` (
+  `heritageID` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `newsID` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -81,6 +105,18 @@ ALTER TABLE `booking`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `heritage`
+--
+ALTER TABLE `heritage`
+  ADD PRIMARY KEY (`heritageID`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`newsID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -95,6 +131,18 @@ ALTER TABLE `users`
 --
 ALTER TABLE `booking`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `heritage`
+--
+ALTER TABLE `heritage`
+  MODIFY `heritageID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `newsID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
