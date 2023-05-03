@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="container py-3 px-0">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
             <a href="home.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img src="assets/img/logo.png" height="80px" width="auto">
+                <img src="assets/img/logo.jpg" height="80px" width="auto">
             </a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="#">Request Document</a></li>
-                        <li><a class="dropdown-item" href="#">View Appointments</a></li>
+                        <li><a class="dropdown-item" href="bookAppointment.php">Book an Appointment</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>
@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+                        <label for="email" class="form-label">Email </label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
                         <div class="invalid-feedback">
                             Please enter a valid email address.
