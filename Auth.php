@@ -55,6 +55,15 @@ class Auth {
   public function close() {
     $this->conn->close();
   }
+
+  public function isAdmin()
+  {
+    if (isset($_SESSION['userType']) && $_SESSION['userType'] == 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 

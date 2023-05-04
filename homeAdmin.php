@@ -3,7 +3,7 @@ require_once('Auth.php');
 require_once('TableData.php');
 
 
-$auth = new Auth('localhost', 'root', '', 'testtestdb');
+$auth = new Auth('localhost', 'root', '', 'barangaywebsite');
 $isLogged = $auth->isLoggedIn();
 
 if (isset($_POST['logout'])) {
@@ -14,7 +14,7 @@ if (isset($_POST['logout'])) {
 
 
 
-$tableData = new TableData('localhost', 'root', '', 'testtestdb');
+$tableData = new TableData('localhost', 'root', '', 'barangaywebsite');
 
 $title = $tableData->getData('title');
 $titleDescription = $tableData->getData('titleDescription');
@@ -147,7 +147,21 @@ if (isset($_POST['positionForm3'])) {
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="#">Request Document</a></li>
-                        <li><a class="dropdown-item" href="#">View Appointments</a></li>
+                        <?php 
+                        if ($isLogged == true) {
+                            if($_SESSION['userType'] == 'admin') {
+                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
+                            }  else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
+                            }
+                        } else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
+                        }
+
+                        
+
+
+                        ?>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark" href="contact.php">Contact Us</a></li>
@@ -155,7 +169,7 @@ if (isset($_POST['positionForm3'])) {
                 <?php if ($isLogged): ?>
                     <li class="nav-item">
                         <form method="POST">
-                            <button type="submit" name="logout" class="nav-link px-2 link-dark">Logout</button>
+                            <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
                         </form>
                     </li>
                 <?php else: ?>
