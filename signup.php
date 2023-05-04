@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <img src="assets/img/logo.jpg" height="80px" width="auto">
             </a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="home.php" class="nav-link px-2 link-dark">Home</a></li>
                 <li><a href="about.php" class="nav-link px-2 link-dark">About Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"

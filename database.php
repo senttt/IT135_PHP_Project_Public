@@ -3,7 +3,10 @@ $user = 'root';
 $password = '';
 $database = 'barangaywebsite'; 
 $servername='localhost';
-$connection = mysqli_connect($servername, $user,
+$conn = mysqli_connect($servername, $user,
                 $password, $database);
 	
+	if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 ?>

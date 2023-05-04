@@ -1,6 +1,6 @@
 <?php
 require_once('Auth.php');
-
+include 'database.php';
 $auth = new Auth('localhost', 'root', '', 'barangaywebsite');
 $isLogged = $auth->isLoggedIn();
 
@@ -9,6 +9,26 @@ if (isset($_POST['logout'])) {
     header('Location: home.php');
     exit;
 }
+
+    //retrieve row for the logged in user
+  $sql = "SELECT firstName, lastName, email, contactNo FROM users WHERE userID = ?";
+  $stmt = mysqli_prepare($conn, $sql);
+  mysqli_stmt_bind_param($stmt, "i", $_SESSION['userID']);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  // Display the user's information
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+  } else {
+
+  }
+
+  // Clean up
+  mysqli_free_result($result);
+  mysqli_stmt_close($stmt);
+
+// Close the database connection
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +76,7 @@ if (isset($_POST['logout'])) {
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="home.php" class="nav-link px-2 link-dark">Home</a></li>
                 <li><a href="about.php" class="nav-link px-2 link-dark">About Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"
@@ -71,7 +91,7 @@ if (isset($_POST['logout'])) {
                 <?php if ($isLogged): ?>
                 <li class="nav-item">
                     <form method="POST">
-                        <button type="submit" name="logout" class="nav-link px-2 link-dark">Logout</button>
+                        <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
                     </form>
                 </li>
                 <?php else: ?>
@@ -83,8 +103,8 @@ if (isset($_POST['logout'])) {
         </header>
     </div>
     <!-- NAVBAR END -->
-
     <!-- APPOINTMENT FORM START -->
+    <?php if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] === true) { ?>
     <div class="container-lg px-0 border" style="box-shadow:  20px 20px 60px #bfbfbf,
              -20px -20px 60px #ffffff;">
         <div class="px-2 rounded-3">
@@ -102,26 +122,27 @@ if (isset($_POST['logout'])) {
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="firstname">First Name</label>
-                                    <input type="text" class="form-control" id="firstname" name="firstname" required>
+                                    <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $row['firstName']; ?>"required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" id="lastname" name="lastname" required>
+                                    <input type="text" class="form-control" id="lastname" name="lastname"  value="<?php echo $row['lastName']; ?>" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" name="email" id="email"
-                                aria-describedby="emailHelp" required>
+                                aria-describedby="emailHelp"  value="<?php echo $row['email']; ?>" required>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                 else.</small>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="tel" class="form-control" name="phone" id="phone" required>
+                            <input type="tel" class="form-control" name="phone" id="phone" 
+                             value="<?php echo $row['contactNo']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Reason for Appointment:</label>
@@ -134,7 +155,6 @@ if (isset($_POST['logout'])) {
                         <input type="date" class="form-control" name="Date" id="myDate" required>
                         <small id="emailHelp" class="form-text text-muted">The office is only open from Monday to Friday
                             (7:30 am to 4:00 pm)</small>
-
                     </div>
                     <div class="form-group">
                         <label for="time">Time</label>
@@ -149,25 +169,20 @@ if (isset($_POST['logout'])) {
             </div>
         </div>
     </div>
+<?php } else { ?>
+<div class="card bg-light">
+  <div class="card-body text-center">
+    <h1 class="card-title">Login Required!</h1>
+    <p class="card-text py-2" style="font-size: 22px;">Please login to book an appointment.</p>
+    <a href="login.php ?>" class="btn btn-primary">Login</a>
+  </div>
+</div>
+<?php } ?>
     <!-- APPOINTMENT FORM END -->
 
     <!-- DATABASE CONNECTION -->
 
-    <?php
-		// Establish connection to database
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "BarangayWebsite";
-
-		$conn = new mysqli($servername, $username, $password, $dbname);
-
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-
-		 
+    <?php 
 		// GET FORM FOR DATABASE 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $firstname = $_POST['firstname'];
@@ -192,11 +207,9 @@ if (isset($_POST['logout'])) {
               echo "<script>alert('Please fill all required fields');</script>";
             }
           } else {
-            // form not submitted
+            
           }
-          // Close connection
-          $conn->close();
-        
+        mysqli_close($conn);
         ?>
     <!-- GET FORM FOR DATABASE END -->
 </body>

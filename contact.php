@@ -99,7 +99,7 @@ if (isset($_POST['logout'])) {
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="home.php" class="nav-link px-2 link-dark">Home</a></li>
                 <li><a href="about.php" class="nav-link px-2 link-dark">About Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"
@@ -109,12 +109,12 @@ if (isset($_POST['logout'])) {
                         <li><a class="dropdown-item" href="bookAppointment.php">Book an Appointment</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-secondary " href="contact.php">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="faq.php">F.A.Q.</a></li>
                 <?php if ($isLogged): ?>
                 <li class="nav-item">
                     <form method="POST">
-                        <button type="submit" name="logout" class="nav-link px-2 link-dark">Logout</button>
+                        <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
                     </form>
                 </li>
                 <?php else: ?>

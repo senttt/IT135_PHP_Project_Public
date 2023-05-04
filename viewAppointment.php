@@ -30,8 +30,7 @@ if (isset($_POST['logout'])) {
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
     </script>
 
@@ -134,7 +133,7 @@ if (isset($_POST['logout'])) {
                 <?php if ($isLogged): ?>
                 <li class="nav-item">
                     <form method="POST">
-                        <button type="submit" name="logout" class="nav-link px-2 link-dark">Logout</button>
+                        <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
                     </form>
                 </li>
                 <?php else: ?>
@@ -190,7 +189,7 @@ function getEvents() {
     var events = [];
     <?php 
               $query = "SELECT * FROM `booking`;";
-              if ($is_query_run = mysqli_query($connection, $query)){
+              if ($is_query_run = mysqli_query($conn, $query)){
                 while ($query_executed = mysqli_fetch_assoc($is_query_run)){
             ?>
     var modal<?php echo $query_executed['id'] ?> = document.getElementById('myModal<?php echo $query_executed['id']?>');
@@ -228,7 +227,7 @@ function getEvents() {
 
 <?php
             $query = "SELECT * FROM `booking`;";
-            if ($is_query_run = mysqli_query($connection, $query)){
+            if ($is_query_run = mysqli_query($conn, $query)){
                 while ($query_executed = mysqli_fetch_assoc($is_query_run)){
                     echo "<div id='myModal".$query_executed['id']."' class='modal'>
                         <div class='modal-content'>

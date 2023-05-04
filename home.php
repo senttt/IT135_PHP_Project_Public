@@ -63,7 +63,7 @@ if (isset($_POST['logout'])) {
                 <?php if ($isLogged): ?>
                 <li class="nav-item">
                     <form method="POST">
-                        <button type="submit" name="logout" class="nav-link px-2 link-dark">Logout</button>
+                        <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
                     </form>
                 </li>
                 <?php else: ?>
