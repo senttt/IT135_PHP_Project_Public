@@ -13,7 +13,6 @@ if (isset($_POST['logout'])) {
 <!DOCTYPE html>
 <html lang="en">
 <?php
-        session_start();
         include 'database.php';
     ?>
 
