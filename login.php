@@ -85,7 +85,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="#">Request Document</a></li>
-                        <li><a class="dropdown-item" href="bookAppointment.php">Book an Appointment</a></li>
+                        <?php 
+                        if ($isLogged == true) {
+                            if($_SESSION['userType'] == 'admin') {
+                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
+                            }  else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
+                            }
+                        } else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
+                        }
+
+                        
+
+
+                        ?>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>

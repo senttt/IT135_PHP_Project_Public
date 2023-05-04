@@ -118,14 +118,28 @@ if (isset($_POST['logout'])) {
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="home.php" class="nav-link px-2 link-dark">Home</a></li>
                 <li><a href="about.php" class="nav-link px-2 link-dark">About Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="#">Request Document</a></li>
-                        <li><a class="dropdown-item" href="bookAppointment.php">Book an Appointment</a></li>
+                        <?php 
+                        if ($isLogged == true) {
+                            if($_SESSION['userType'] == 'admin') {
+                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
+                            }  else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
+                            }
+                        } else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
+                        }
+
+                        
+
+
+                        ?>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>
