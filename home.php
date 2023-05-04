@@ -91,7 +91,7 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
-                        <li><a class="dropdown-item" href="#">Request Document</a></li>
+                        <li><a class="dropdown-item" href="submitDocuments.php">Request Document</a></li>
                         <?php 
                         if ($isLogged == true) {
                             if($_SESSION['userType'] == 'admin') {

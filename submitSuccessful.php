@@ -1,34 +1,14 @@
 <?php
-require_once 'Auth.php';
-
-// Start a new session
+require_once('Auth.php');
 
 
-// Create a new Auth object
 $auth = new Auth('localhost', 'root', '', 'barangaywebsite');
-$error = "";
-// Check if the user is already logged in
-if ($auth->isLoggedIn()) {
+$isLogged = $auth->isLoggedIn();
+
+if (isset($_POST['logout'])) {
+    $auth->logout();
     header('Location: home.php');
     exit;
-}
-
-// Check if the form was submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the username and password from the form data
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Attempt to log the user in
-    if ($auth->login($email, $password)) {
-        // Redirect to the after login
-        header('Location: home.php');
-        exit;
-    } else {
-        // Show an error message
-        $error = 'Invalid username or password';
-        
-    }
 }
 ?>
 
@@ -53,15 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border-width: 1px 0;
         box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
     }
-
-    .form-login {
-        max-width: 350px;
-        padding: 15px;
-        padding-top: 150px;
-        padding-bottom: 150px;
-        margin: auto;
-        width: 100%;
-    }
     </style>
 </head>
 
@@ -72,54 +43,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 
     <!-- NAVBAR START -->
+
+
     <div class="container py-3 px-0">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
             <a href="home.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
                 <img src="assets/img/logo.jpg" height="80px" width="auto">
             </a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="home.php" class="nav-link px-2 link-dark">Home</a></li>
+                <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="about.php" class="nav-link px-2 link-dark">About Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
-                        <li><a class="dropdown-item" href="submitDocuments.php">Request Document</a></li>
-                        <li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>  
+                        <li><a class="dropdown-item" href="#">Request Document</a></li>
+                        <?php 
+                        if ($isLogged == true) {
+                            if($_SESSION['userType'] == 'admin') {
+                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
+                            }  else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
+                            }
+                        } else {
+                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
+                        }
+
+                        
+
+
+                        ?>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link px-2 link-dark " href="faq.php">F.A.Q.</a></li>
-                <li class="nav-item"><a class="nav-link px-2 link-dark " href="login.php">Login</a></li>
-                <li class="nav-item"><a class="nav-link px-2 link-dark " href="signup.php">Sign-up</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="contact.php">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="faq.php">F.A.Q.</a></li>
+                <?php if ($isLogged): ?>
+                <li class="nav-item">
+                    <form method="POST">
+                        <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
+                    </form>
+                </li>
+                <?php else: ?>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="login.php">Login</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="signup.php">Sign-up</a></li>
+                <?php endif; ?>
             </ul>
 
         </header>
     </div>
     <!-- NAVBAR END -->
-    <!-- <div class="divider"></div> -->
-    <section class="border-top">
-        <form class="text-center mx-auto form-login" method="post">
-            <h1 class="h3 mb-3 fw-normal">Please Login</h1>
-            <div><?php echo($error)?><div>
-                    <div class="form-floating my-3">
-                        <input type="email" class="form-control" name="email" id="floatingInput"
-                            placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
-                    </div>
-                    <div class="form-floating my-3">
-                        <input type="password" class="form-control" name="password" id="floatingPassword"
-                            placeholder="Password">
-                        <label for="floatingPassword">Password</label>
-                    </div>
-                    <!-- <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label> -->
-                </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        </form>
-    </section>
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <h1 class="card-title">Submission Successful!</h1>
+            <p class="card-text py-2" style="font-size: 22px;">If you have not yet created an appointment, Book
+                one now for your corresponding document request</p>
+            <a href="home.php ?>" class="btn btn-primary">Home</a>
+        </div>
+    </div>
+    <!-- MEET OUR BRGY COUNCIL END -->
+    <div class="divider"></div>
     <!-- FOOTER START -->
     <div class="container-fluid pb-2 px-0 border-top bg-light">
         <div class="container">
@@ -129,24 +111,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="mx-auto col-md-3 px-3">
                             <!-- EVEN SHORTER SUMMARY OF ABOUT US -->
                             <h3 class="text-center">About Us</h3>
-                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada
+                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur
+                                adipiscing
+                                elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor
+                                malesuada
                                 consectetur nibh.</span>
                         </div>
                         <div class="mx-auto col-md-3 px-3">
                             <h3 class="text-center">Links</h3>
                             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
                                 <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
-                                <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
-                                <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
+                                <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a>
+                                </li>
+                                <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="mx-auto col-md-3 px-3">
                             <h3 class="text-center">Contact Us</h3>
-                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada
+                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur
+                                adipiscing
+                                elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor
+                                malesuada
                                 consectetur nibh.</span>
                         </div>
                         <div class="mx-auto col-md-3 px-3">
