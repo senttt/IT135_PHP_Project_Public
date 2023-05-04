@@ -82,7 +82,7 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
     <div class="container py-3 px-0">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
             <a href="home.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img src="assets/img/logo.png" height="80px" width="auto">
+                <img src="assets/img/logo.jpg" height="80px" width="auto">
             </a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
