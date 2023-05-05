@@ -34,6 +34,14 @@ class Register {
         return "Contact number already exists";
     }
     
+    // Check if user is at least 13 years old
+    $dob = new DateTime($dateOfBirth);
+    $today = new DateTime();
+    $age = $today->diff($dob)->y;
+    if ($age < 13) {
+        return "User must be 13 years old and above";
+    }
+    
     // Hash the password before storing it in the database
     $password = password_hash($password, PASSWORD_DEFAULT); 
     $fullName = $firstName . " " . $lastName;
@@ -44,6 +52,7 @@ class Register {
     
     return "User registered successfully";
 }
+
 
 
   
