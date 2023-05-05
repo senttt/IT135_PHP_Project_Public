@@ -119,6 +119,12 @@ $message="";
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
+                                    <label for="fnameForm">Middle Initial</label>
+                                    <input type="text" class="form-control" id="miForm" name="miForm" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
                                     <label for="lnameForm">Last Name</label>
                                     <input type="text" class="form-control" id="lnameForm" name="lnameForm" required>
                                 </div>
@@ -156,10 +162,7 @@ $message="";
                             <option value="Divorced">Divorced</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="file" class="form-label">Upload ID:</label>
-                        <input type="file" class="form-control" name="file">
-                    </div>
+                    <p class="card-text py-2" style="font-size: 22px;">Bring a valid ID at pickup</p>
                 </div>
                 <div class="row d-flex justify-content-center align-items-center border">
                     <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block my-3"
@@ -245,6 +248,7 @@ if (isset($_POST['submit'])){
 
     $documentForm = $_POST['documentForm'];
     $fnameForm = $_POST['fnameForm'];
+    $miForm = $_POST['miForm'];
     $lnameForm = $_POST['lnameForm'];
     $emailForm = $_POST['emailForm'];
     $addressForm = $_POST['addressForm'];
@@ -287,8 +291,8 @@ if (isset($_POST['submit'])){
         echo "<script>alert('Please fill all required fields');</script>";
       }else {
         // All required fields are filled, proceed with user registration
-        $sql = "INSERT INTO documentrequest(doc_documentType, doc_fname, doc_lname, doc_address, doc_birthdate, doc_sex, doc_email, doc_civilstatus, doc_directory) 
-                                  VALUES ('$documentForm','$fnameForm','$lnameForm','$addressForm','$birthdateForm','$sexForm','$emailForm','$civilStatusForm','$fileDestination')";
+        $sql = "INSERT INTO documentrequest(doc_documentType, doc_fname, doc_mi, doc_lname, doc_address, doc_birthdate, doc_sex, doc_email, doc_civilstatus) 
+                                  VALUES ('$documentForm','$fnameForm','$miForm','$lnameForm','$addressForm','$birthdateForm','$sexForm','$emailForm','$civilStatusForm')";
       }
       if ($mysqli->query($sql) === TRUE) {
         echo "<script>alert('Documents Submitted Successfully!');</script>";
