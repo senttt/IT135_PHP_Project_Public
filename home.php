@@ -4,18 +4,12 @@ require_once('TableData.php');
 
 $auth = new Auth('localhost', 'root', '', 'barangaywebsite');
 $isLogged = $auth->isLoggedIn();
-if ($isLogged) {
-    if ($auth->isAdmin()) {
-        header('Location: homeAdmin.php');
-    }
-}
+
 if (isset($_POST['logout'])) {
     $auth->logout();
     header('Location: home.php');
     exit;
 }
-
-
 
 $tableData = new TableData('localhost', 'root', '', 'barangaywebsite');
 
@@ -46,6 +40,7 @@ $positionDesc3 = $tableData->getData('positionDesc3');
 $lastUpdatedPosition1 = $tableData->getData('lastUpdatedPosition1');
 $lastUpdatedPosition2 = $tableData->getData('lastUpdatedPosition2');
 $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
+
 ?>
 
 <!DOCTYPE html>
@@ -62,21 +57,21 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
 
 
     <style>
-        .divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
+    .divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
     </style>
 </head>
 
 <body>
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <!-- NAVBAR START -->
     <div class="container py-3 px-0">
@@ -92,34 +87,20 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="submitDocuments.php">Request Document</a></li>
-                        <?php 
-                        if ($isLogged == true) {
-                            if($_SESSION['userType'] == 'admin') {
-                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
-                            }  else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
-                            }
-                        } else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
-                        }
-
-                        
-
-
-                        ?>
+                        <li><a class="dropdown-item" href="bookAppointment.php">Book an Appointment</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark" href="contact.php">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark" href="faq.php">F.A.Q.</a></li>
                 <?php if ($isLogged): ?>
-                    <li class="nav-item">
-                        <form method="POST">
-                            <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
-                        </form>
-                    </li>
+                <li class="nav-item">
+                    <form method="POST">
+                        <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
+                    </form>
+                </li>
                 <?php else: ?>
-                    <li class="nav-item"><a class="nav-link px-2 link-dark" href="login.php">Login</a></li>
-                    <li class="nav-item"><a class="nav-link px-2 link-dark" href="signup.php">Sign-up</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="login.php">Login</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="signup.php">Sign-up</a></li>
                 <?php endif; ?>
             </ul>
 
@@ -131,13 +112,11 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
         <div class="py-5 bg-light rounded-3">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold text-center">
-                    <?php echo ($title); ?>
+                    <?php echo $title; ?>
                 </h1>
-
                 <div class="mx-auto" style="width: 1000px">
                     <p class="fs-4 text-center">
-                        <?php echo ($titleDescription); ?>
-                        </h1>
+                        <?php echo $titleDescription; ?>
                     </p>
                 </div>
             </div>
@@ -157,9 +136,7 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <p class="card-text">
-                                    <?php echo ($newsDescription1); ?>
-                                </p>
+                                <p class="card-text"><?php echo $newsDescription1; ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -170,9 +147,7 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <p class="card-text">
-                                    <?php echo ($newsDescription2); ?>
-                                </p>
+                                <p class="card-text"><?php echo $newsDescription2; ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -183,9 +158,7 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <p class="card-text">
-                                    <?php echo ($newsDescription3); ?>
-                                </p>
+                                <p class="card-text"><?php echo $newsDescription3; ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -206,7 +179,7 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
             <div class="col-lg-6">
                 <h3 class="display-5 fw-bold lh-1 mb-3 text-center">About Us</h3>
                 <p class="lead text-center">
-                    <?php echo ($aboutUsDescription); ?>
+                    <?php echo $aboutUsDescription; ?>
                 </p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                     <a class="btn btn-primary" href="about.php" role="button">Learn More</a>
@@ -232,12 +205,8 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <?php echo ($heritageSite1); ?>
-                                </h5>
-                                <p class="card-text">
-                                    <?php echo ($heritageSiteDesc1); ?>
-                                </p>
+                                <h5 class="card-title"><?php echo $heritageSite1; ?></h5>
+                                <p class="card-text"><?php echo $heritageSiteDesc1; ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -248,12 +217,8 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <?php echo ($heritageSite2); ?>
-                                </h5>
-                                <p class="card-text">
-                                    <?php echo ($heritageSiteDesc2); ?>
-                                </p>
+                                <h5 class="card-title"><?php echo $heritageSite2; ?></h5>
+                                <p class="card-text"><?php echo $heritageSiteDesc2; ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -264,12 +229,8 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <?php echo ($heritageSite3); ?>
-                                </h5>
-                                <p class="card-text">
-                                    <?php echo ($heritageSiteDesc3); ?>
-                                </p>
+                                <h5 class="card-title"><?php echo $heritageSite3; ?></h5>
+                                <p class="card-text"><?php echo $heritageSiteDesc3; ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -296,12 +257,8 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <?php echo ($position1); ?>
-                                </h5>
-                                <p class="card-text">
-                                    <?php echo ($positionDesc1); ?>
-                                </p>
+                                <h5 class="card-title"><?php echo ($position1); ?></h5>
+                                <p class="card-text"><?php echo ($positionDesc1); ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -312,12 +269,8 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <?php echo ($position2); ?>
-                                </h5>
-                                <p class="card-text">
-                                    <?php echo ($positionDesc2); ?>
-                                </p>
+                                <h5 class="card-title"><?php echo ($position2); ?></h5>
+                                <p class="card-text"><?php echo ($positionDesc2); ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -328,12 +281,8 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                         <div class="card shadow-sm">
                             <img src="assets\img\sample.jpg" class="card-img-top" style="width:100%; height 225">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    <?php echo ($position3); ?>
-                                </h5>
-                                <p class="card-text">
-                                    <?php echo ($positionDesc3); ?>
-                                </p>
+                                <h5 class="card-title"><?php echo ($position3); ?></h5>
+                                <p class="card-text"><?php echo ($positionDesc3); ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">9 mins</small>
                                 </div>
@@ -365,8 +314,7 @@ $lastUpdatedPosition3 = $tableData->getData('lastUpdatedPosition3');
                             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
                                 <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
                                 <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
+
                                 <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
                             </ul>
                         </div>

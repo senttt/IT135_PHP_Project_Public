@@ -24,7 +24,7 @@ class Auth {
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-
+  
     if ($result->num_rows > 0) {
       $user = $result->fetch_assoc();
       if (password_verify($password, $user['password'])) {
@@ -33,13 +33,19 @@ class Auth {
         $_SESSION['userID'] = $user['userID'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['userType'] = $user['userType'];
-        return true;
-      } else {
-        return false;
+        
+        // Redirect based on userType
+        if ($user['userType'] === 'admin') {
+          header('Location: homeAdmin.php');
+        } else{
+          header('Location: home.php');
+        }
+        
+        exit();
       }
-    } else {
-      return false;
     }
+  
+    return false;
   }
 
   public function logout() {
@@ -54,15 +60,6 @@ class Auth {
   
   public function close() {
     $this->conn->close();
-  }
-
-  public function isAdmin()
-  {
-    if (isset($_SESSION['userType']) && $_SESSION['userType'] == 'admin') {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
 

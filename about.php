@@ -55,26 +55,12 @@ if (isset($_POST['logout'])) {
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="submitDocuments.php">Request Document</a></li>
-                        <?php 
-                        if ($isLogged == true) {
-                            if($_SESSION['userType'] == 'admin') {
-                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
-                            }  else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
-                            }
-                        } else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
-                        }
-
-                        
-
-
-                        ?>
+                        <li><a class="dropdown-item" href="bookAppointment.php">Book an Appointment</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="faq.php">F.A.Q.</a></li>
-                <?php if ($isLogged): ?>
+                <?php if ($isLogged):?>
                 <li class="nav-item">
                     <form method="POST">
                         <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
@@ -209,8 +195,6 @@ if (isset($_POST['logout'])) {
                         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
                             <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
                             <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
-                            <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
-                            <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
                             <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
                         </ul>
                     </div>

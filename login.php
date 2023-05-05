@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="submitDocuments.php">Request Document</a></li>
-                        <li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>  
+                        <li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>
@@ -138,8 +138,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
                                 <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
                                 <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
                                 <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
                             </ul>
                         </div>

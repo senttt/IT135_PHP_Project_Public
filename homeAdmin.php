@@ -117,21 +117,21 @@ if (isset($_POST['positionForm3'])) {
 
 
     <style>
-        .divider {
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
+    .divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
     </style>
 </head>
 
 <body>
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <!-- NAVBAR START -->
     <div class="container py-3 px-0">
@@ -140,41 +140,26 @@ if (isset($_POST['positionForm3'])) {
                 <img src="assets/img/logo.jpg" height="80px" width="auto">
             </a>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="home.php" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="homeAdmin.php" class="nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="about.php" class="nav-link px-2 link-dark">About Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
-                        <li><a class="dropdown-item" href="submitDocuments.php">Request Document</a></li>
-                        <?php 
-                        if ($isLogged == true) {
-                            if($_SESSION['userType'] == 'admin') {
-                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
-                            }  else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
-                            }
-                        } else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
-                        }
-
-                        
-
-
-                        ?>
+                        <li><a class="dropdown-item" href="viewAppointment.php">View Appointments</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark" href="contact.php">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark" href="faq.php">F.A.Q.</a></li>
                 <?php if ($isLogged): ?>
-                    <li class="nav-item">
-                        <form method="POST">
-                            <button type="submit" name="logout" class="btn btn-secondary btn-block">Logout</button>
-                        </form>
-                    </li>
+                <li class="nav-item">
+                    <form method="POST">
+                        <button type="submit" name="logout" class="nav-link px-2 link-dark">Logout</button>
+                    </form>
+                </li>
                 <?php else: ?>
-                    <li class="nav-item"><a class="nav-link px-2 link-dark" href="login.php">Login</a></li>
-                    <li class="nav-item"><a class="nav-link px-2 link-dark" href="signup.php">Sign-up</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="login.php">Login</a></li>
+                <li class="nav-item"><a class="nav-link px-2 link-dark" href="signup.php">Sign-up</a></li>
                 <?php endif; ?>
             </ul>
 
@@ -478,8 +463,6 @@ if (isset($_POST['positionForm3'])) {
                             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
                                 <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
                                 <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">Request Document</a></li>
-                                <li><a href="#" class="nav-link px-2 link-dark text-center">View Appointments</a></li>
                                 <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
                             </ul>
                         </div>

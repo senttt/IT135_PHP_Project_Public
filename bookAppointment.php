@@ -83,21 +83,7 @@ if (isset($_POST['logout'])) {
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
                         <li><a class="dropdown-item" href="submitDocuments.php">Request Document</a></li>
-                        <?php 
-                        if ($isLogged == true) {
-                            if($_SESSION['userType'] == 'admin') {
-                            echo "<li><a class='dropdown-item' href='viewAppointment.php'>View Appointments</a></li>";                            
-                            }  else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";    
-                            }
-                        } else {
-                            echo "<li><a class='dropdown-item' href='bookAppointment.php'>Book an Appointment</a></li>";  
-                        }
-
-                        
-
-
-                        ?>
+                        <li><a class="dropdown-item" href="#">Book an Appointment</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link px-2 link-dark " href="contact.php">Contact Us</a></li>
@@ -136,27 +122,29 @@ if (isset($_POST['logout'])) {
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="firstname">First Name</label>
-                                    <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $row['firstName']; ?>"required>
+                                    <input type="text" class="form-control" id="firstname" name="firstname"
+                                        value="<?php echo $row['firstName']; ?>" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" id="lastname" name="lastname"  value="<?php echo $row['lastName']; ?>" required>
+                                    <input type="text" class="form-control" id="lastname" name="lastname"
+                                        value="<?php echo $row['lastName']; ?>" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" name="email" id="email"
-                                aria-describedby="emailHelp"  value="<?php echo $row['email']; ?>" required>
+                                aria-describedby="emailHelp" value="<?php echo $row['email']; ?>" required>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                 else.</small>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="tel" class="form-control" name="phone" id="phone" 
-                             value="<?php echo $row['contactNo']; ?>" required>
+                            <input type="tel" class="form-control" name="phone" id="phone"
+                                value="<?php echo $row['contactNo']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Reason for Appointment:</label>
@@ -183,65 +171,57 @@ if (isset($_POST['logout'])) {
             </div>
         </div>
     </div>
-<?php } else { ?>
-<div class="card bg-light">
-  <div class="card-body text-center">
-    <h1 class="card-title">Login Required!</h1>
-    <p class="card-text py-2" style="font-size: 22px;">Please login to book an appointment.</p>
-    <a href="login.php ?>" class="btn btn-primary">Login</a>
-  </div>
-</div>
-<?php } ?>
+    <?php } else { ?>
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <h1 class="card-title">Login Required!</h1>
+            <p class="card-text py-2" style="font-size: 22px;">Please login to book an appointment.</p>
+            <a href="login.php ?>" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+    <?php } ?>
     <!-- APPOINTMENT FORM END -->
-    <div class="divider"></div>
-    <!-- FOOTER START -->
-        <div class="container-fluid pb-2 px-0 border-top bg-light">
-            <div class="container">
-                <footer class="footer mt-auto py-3">
-                    <div class="container-fluid py-5">
-                        <div class="row px-5">
-                            <div class="mx-auto col-md-3 px-3">
-                                <!-- EVEN SHORTER SUMMARY OF ABOUT US -->
-                                <h3 class="text-center">About Us</h3>
-                                <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing
-                                    elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor
-                                    malesuada
-                                    consectetur nibh.</span>
-                            </div>
-                            <div class="mx-auto col-md-3 px-3">
-                                <h3 class="text-center">Links</h3>
-                                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
-                                    <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
-                                    <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a>
-                                    </li>
-                                    <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="mx-auto col-md-3 px-3">
-                                <h3 class="text-center">Contact Us</h3>
-                                <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing
-                                    elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor
-                                    malesuada
-                                    consectetur nibh.</span>
-                            </div>
-                            <div class="mx-auto col-md-3 px-3">
-                                <h3 class="text-center">Location</h3>
-                                <div class="embed-responsive text-center">
-                                    <iframe class="embed-responsive-item"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.28219962877!2d121.00253820000002!3d14.582989050000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c993b7ce58bf%3A0x32d5ccfe4b774f6d!2sBrgy.%20872%2C%20Pandacan%2C%20Manila%2C%201011%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682255049225!5m2!1sen!2sph"
-                                        style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
+    <div class="container-fluid pb-2 px-0 border-top bg-light">
+        <div class="container">
+            <footer class="footer mt-auto py-3">
+                <div class="container-fluid py-5">
+                    <div class="row px-5">
+                        <div class="mx-auto col-md-3 px-3">
+                            <!-- EVEN SHORTER SUMMARY OF ABOUT US -->
+                            <h3 class="text-center">About Us</h3>
+                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada
+                                consectetur nibh.</span>
+                        </div>
+                        <div class="mx-auto col-md-3 px-3">
+                            <h3 class="text-center">Links</h3>
+                            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
+                                <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
+                                <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a></li>
+                                <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a></li>
+                            </ul>
+                        </div>
+                        <div class="mx-auto col-md-3 px-3">
+                            <h3 class="text-center">Contact Us</h3>
+                            <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor malesuada
+                                consectetur nibh.</span>
+                        </div>
+                        <div class="mx-auto col-md-3 px-3">
+                            <h3 class="text-center">Location</h3>
+                            <div class="embed-responsive text-center">
+                                <iframe class="embed-responsive-item"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.28219962877!2d121.00253820000002!3d14.582989050000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c993b7ce58bf%3A0x32d5ccfe4b774f6d!2sBrgy.%20872%2C%20Pandacan%2C%20Manila%2C%201011%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682255049225!5m2!1sen!2sph"
+                                    style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
         </div>
-        <!-- FOOTER END -->
+    </div>
+    <!-- FOOTER END -->
     <!-- DATABASE CONNECTION -->
 
     <?php 
