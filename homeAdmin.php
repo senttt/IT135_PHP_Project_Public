@@ -146,6 +146,7 @@ if (isset($_POST['positionForm3'])) {
                     <a class="nav-link dropdown-toggle link-dark" href="#" id="dropdown" data-bs-toggle="dropdown"
                         aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown">
+                    <li><a class="dropdown-item" href="viewRequest.php">View Document Requests</a></li>
                         <li><a class="dropdown-item" href="viewAppointment.php">View Appointments</a></li>
                     </ul>
                 </li>

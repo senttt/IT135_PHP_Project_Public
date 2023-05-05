@@ -291,8 +291,8 @@ if (isset($_POST['submit'])){
         echo "<script>alert('Please fill all required fields');</script>";
       }else {
         // All required fields are filled, proceed with user registration
-        $sql = "INSERT INTO documentrequest(doc_documentType, doc_fname, doc_mi, doc_lname, doc_address, doc_birthdate, doc_sex, doc_email, doc_civilstatus) 
-                                  VALUES ('$documentForm','$fnameForm','$miForm','$lnameForm','$addressForm','$birthdateForm','$sexForm','$emailForm','$civilStatusForm')";
+        $sql = "INSERT INTO documentrequest(doc_documentType, doc_fname, doc_mi, doc_lname, doc_address, doc_birthdate, doc_sex, doc_email, doc_civilstatus, status) 
+                                  VALUES ('$documentForm','$fnameForm','$miForm','$lnameForm','$addressForm','$birthdateForm','$sexForm','$emailForm','$civilStatusForm', 'in progress')";
       }
       if ($mysqli->query($sql) === TRUE) {
         echo "<script>alert('Documents Submitted Successfully!');</script>";

@@ -171,7 +171,7 @@ if (isset($_POST['logout'])) {
             </div>
         </div>
         <div class="container-fluid border-top border-bottom">
-            <div class="row bg-light p-3">
+            <d class="row bg-light p-3">
         <?php
         // Connect to database
 
@@ -194,9 +194,9 @@ if (isset($_POST['logout'])) {
 
         // Display table with dropdown selection for status column
         if ($result->num_rows > 0) {
-            echo "<table><tr><th>ID</th><th>Document Type</th><th>First Name</th><th>Last Name</th><th>Address</th><th>Birthdate</th><th>Sex</th><th>Email</th><th>Civil Status</th><th>Status</th></tr>";
+            echo "<table><tr><th>ID</th><th>Document Type</th><th>First Name</th><th>MI</th><th>Last Name</th><th>Address</th><th>Birthdate</th><th>Sex</th><th>Email</th><th>Civil Status</th><th>Status</th></tr>";
             while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row["doc_id"] . "</td><td>" . $row["doc_documentType"] . "</td><td>" . $row["doc_fname"] . "</td><td>" . $row["doc_lname"] . "</td><td>" . $row["doc_address"] . "</td><td>" . $row["doc_birthdate"] . "</td><td>" . $row["doc_sex"] . "</td><td>" . $row["doc_email"] . "</td><td>" . $row["doc_civilstatus"] . "</td><td>";
+                echo "<tr><td>" . $row["doc_id"] . "</td><td>" . $row["doc_documentType"] . "</td><td>" . $row["doc_fname"] ."</td><td>".$row["doc_mi"]. "</td><td>" . $row["doc_lname"] . "</td><td>" . $row["doc_address"] . "</td><td>" . $row["doc_birthdate"] . "</td><td>" . $row["doc_sex"] . "</td><td>" . $row["doc_email"] . "</td><td>" . $row["doc_civilstatus"] . "</td><td>";
                 echo "<form method='post'>";
                 echo "<input type='hidden' name='doc_id' value='" . $row["doc_id"] . "'>";
                 echo "<select name='status'>";
@@ -223,94 +223,57 @@ if (isset($_POST['logout'])) {
 
 
 
-            </div>
-        </div>
-    </div>
-</body>
-<!--SCRIPT FOR CALENDAR-->
-<script>
-$(function(e) {
-    var calendar = $("#calendar").calendarGC({
-        dayBegin: 0,
-        prevIcon: '&#x3c;',
-        nextIcon: '&#x3e;',
-        onPrevMonth: function(e) {
-            console.log("prev");
-            console.log(e)
-        },
-        onNextMonth: function(e) {
-            console.log("next");
-            console.log(e)
-        },
-        events: getEvents(),
-        onclickDate: function(e, data) {
-            console.log(e, data);
-        }
-    });
-})
-
-function getEvents() {
-    var events = [];
-    <?php 
-              $query = "SELECT * FROM `booking`;";
-              if ($is_query_run = mysqli_query($conn, $query)){
-                while ($query_executed = mysqli_fetch_assoc($is_query_run)){
-            ?>
-    var modal<?php echo $query_executed['id'] ?> = document.getElementById('myModal<?php echo $query_executed['id']?>');
-    var btn<?php echo $query_executed['id']?> = document.getElementById('<?php echo $query_executed['id']?>');
-    var span<?php echo $query_executed['id']?> = document.getElementsByClassName(
-        'close<?php echo $query_executed['id']?>')[0];
-    span<?php echo $query_executed['id']?>.onclick = function() {
-        modal<?php echo $query_executed['id']?>.style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal<?php echo $query_executed['id']?>) {
-            modal<?php echo $query_executed['id']?>.style.display = 'none';
-        }
-    }
-    <?php
-                  echo "events.push({
-                          date: new Date('".$query_executed['date']."'),
-                          eventName: '".$query_executed['id']." | ".$query_executed['firstName']." ".$query_executed['lastName']." ',
-                          className: 'badge bg-danger',
-                          onclick(e, data) {
-                            modal".$query_executed['id'].".style.display = 'block';
-                            console.log(data);
-                          },
-                          dateColor: '#bf7521'
-                        });";
-                }
-              }
-            ?>
-    return events;
-}
-
-//getEvents()
-</script>
-
-<?php
-            $query = "SELECT * FROM `booking`;";
-            if ($is_query_run = mysqli_query($conn, $query)){
-                while ($query_executed = mysqli_fetch_assoc($is_query_run)){
-                    echo "<div id='myModal".$query_executed['id']."' class='modal'>
-                        <div class='modal-content'>
-                            <div class='close".$query_executed['id']."' id='close'>&times;</div>
-                            <form action='delete.php?id=".$query_executed['id']."' method='POST'>
-                            <h1 style='text-align:center'>Appointment No. ".$query_executed['id']."</h1>
-                            <b>Name:</b> ".$query_executed['firstName']." ".$query_executed['lastName']."<br>
-                            <b>Email:</b> ".$query_executed['email']."<br>
-                            <b>Phone:</b> ".$query_executed['phone']."<br>
-                            <b>Date:</b> ".$query_executed['date']."<br>
-                            <b>Message:</b> ".$query_executed['message']."<br>
-                            <br><center><div class='col-12'>
-                                        <input type='submit' name='submit' class='btn btn-success btn-lg btn-warning' value='Delete'></button>
-                                    </div></center>
+            </d        <!-- FOOTER START -->
+        <div class="container-fluid pb-2 px-0 border-top bg-light">
+            <div class="container">
+                <footer class="footer mt-auto py-3">
+                    <div class="container-fluid py-5">
+                        <div class="row px-5">
+                            <div class="mx-auto col-md-3 px-3">
+                                <!-- EVEN SHORTER SUMMARY OF ABOUT US -->
+                                <h3 class="text-center">About Us</h3>
+                                <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing
+                                    elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor
+                                    malesuada
+                                    consectetur nibh.</span>
+                            </div>
+                            <div class="mx-auto col-md-3 px-3">
+                                <h3 class="text-center">Links</h3>
+                                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 list-group">
+                                    <li><a href="home.php" class="nav-link px-2 link-dark text-center">Home</a></li>
+                                    <li><a href="about.php" class="nav-link px-2 link-dark text-center">About Us</a>
+                                    </li>
+                                    <li><a href="faq.php" class="nav-link px-2 link-dark text-center">F.A.Q.</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mx-auto col-md-3 px-3">
+                                <h3 class="text-center">Contact Us</h3>
+                                <span class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing
+                                    elit. Vestibulum sit amet est nibh. Nam vel erat et nisi viverra porttitor
+                                    malesuada
+                                    consectetur nibh.</span>
+                            </div>
+                            <div class="mx-auto col-md-3 px-3">
+                                <h3 class="text-center">Location</h3>
+                                <div class="embed-responsive text-center">
+                                    <iframe class="embed-responsive-item"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.28219962877!2d121.00253820000002!3d14.582989050000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c993b7ce58bf%3A0x32d5ccfe4b774f6d!2sBrgy.%20872%2C%20Pandacan%2C%20Manila%2C%201011%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1682255049225!5m2!1sen!2sph"
+                                        style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    </form>";
-                }
-            }
-        ?>
+                </footer>
+            </div>
+        </div>
+        <!-- FOOTER END -->iv>
+        </div>
+    </div>
 
+</body>
+<!--SCRIPT FOR CALENDAR-->
 </html>

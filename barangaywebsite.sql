@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2023 at 06:09 AM
+-- Generation Time: May 04, 2023 at 08:35 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `firstName`, `lastName`, `email`, `phone`, `date`, `time`, `message`, `created_at`) VALUES
-(16, 'Daniel', 'Panganiban', 'dhpanganiban@gmail.com', '90808080', '2023-03-02', '08:30:00', 'ygytfubihnuyb', '2023-05-05 02:17:19');
+(14, 'Daniel', 'Panganiban', 'dhpanganiban@gmail.com', '90808080', '2023-06-08', '10:30:00', 'For Barangay clearance application', '2023-05-04 18:07:32'),
+(15, 'Daniel', 'Panganiban', 'dhpanganiban@gmail.com', '90808080', '2023-05-26', '08:00:00', 'kjhkujhkhu', '2023-05-04 18:08:20');
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,6 @@ CREATE TABLE `documentrequest` (
   `doc_id` int(11) NOT NULL,
   `doc_documentType` varchar(255) NOT NULL,
   `doc_fname` varchar(255) NOT NULL,
-  `doc_mi` varchar(255) NOT NULL,
   `doc_lname` varchar(255) NOT NULL,
   `doc_address` varchar(255) NOT NULL,
   `doc_birthdate` date NOT NULL,
@@ -65,16 +65,6 @@ CREATE TABLE `documentrequest` (
   `doc_civilstatus` varchar(255) NOT NULL,
   `doc_directory` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `documentrequest`
---
-
-INSERT INTO `documentrequest` (`doc_id`, `doc_documentType`, `doc_fname`, `doc_mi`, `doc_lname`, `doc_address`, `doc_birthdate`, `doc_sex`, `doc_email`, `doc_civilstatus`, `doc_directory`) VALUES
-(20, 'Barangay Clearance', 'Kyle Dexter', '0', 'Panganiban', 'moeadoew st', '2023-05-24', 'Male', 'kdhpanganiban@hotmail.com', 'Single', 'upload/64545974054739.04100573.png'),
-(21, 'Barangay Proof of Residency', 'Kyle Dexter', '0', 'Panganiban', 'moeadoew st', '2023-06-22', 'Male', 'kdhpanganiban@hotmail.com', 'Single', 'upload/645466cb6df792.35640919.png'),
-(22, 'Barangay Clearance', 'Kyle', '0', 'Pang', 'Mnila', '2023-05-01', 'Male', 'xidjji@gmail.com', 'Single', 'upload/64547346b86e59.08845509.png'),
-(23, 'Barangay Clearance', 'CLOE', '0', 'ROSARIO', 'MANILA', '2023-05-14', 'Male', 'cloesample@com', 'Single', '');
 
 -- --------------------------------------------------------
 
@@ -130,7 +120,7 @@ CREATE TABLE `homepage` (
 --
 
 INSERT INTO `homepage` (`id`, `title`, `titleDescription`, `newsDescription1`, `newsDescription2`, `newsDescription3`, `lastUpdatedNews1`, `lastUpdatedNews2`, `lastUpdatedNews3`, `aboutUsDescription`, `heritageSite1`, `heritageSite2`, `heritageSite3`, `heritageSiteDesc1`, `heritageSiteDesc2`, `heritageSiteDesc3`, `lastUpdatedHeritage1`, `lastUpdatedHeritage2`, `lastUpdatedHeritage3`, `position1`, `position2`, `position3`, `positionDesc1`, `positionDesc2`, `positionDesc3`, `lastUpdatedPosition1`, `lastUpdatedPosition2`, `lastUpdatedPosition3`) VALUES
-(0, 'Barangay 872, Pandacan, Manila City', 'A Barangay in Manila City', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', '2023-05-04', '2023-05-04', '2023-05-04', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Osmena Highway', 'PNR', 'Barangay 872', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', '2023-05-04', '2023-05-04', '2023-05-04', 'Punong Barangay', 'SK Chairperson', 'Barangay Secretary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', '2023-05-04', '2023-05-04', '2023-05-04');
+(0, 'Barangay 872, Pandacan, Manila City', 'A Barangay in Manila', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', '2023-05-04', '2023-05-04', '2023-05-04', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Osmena Highway', 'PNR', 'Barangay 872', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', '2023-05-04', '2023-05-04', '2023-05-04', 'Punong Barangay', 'SK Chairperson', 'Barangay Secretary', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum sit amet lectus in vulputate. Pellentesque eget sapien ante. Donec finibus faucibus massa, in sollicitudin dolor eleifend non. Ut fermentum nisi vel elit pulvinar, ut semper nisi pellentesque.', '2023-05-04', '2023-05-04', '2023-05-04');
 
 -- --------------------------------------------------------
 
@@ -220,13 +210,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `documentrequest`
 --
 ALTER TABLE `documentrequest`
-  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `heritage`
