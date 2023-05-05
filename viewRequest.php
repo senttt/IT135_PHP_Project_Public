@@ -172,64 +172,57 @@ if (isset($_POST['logout'])) {
         </div>
         <div class="container-fluid border-top border-bottom">
             <div class="row bg-light p-3">
-                <?php
-                $sql = "SELECT * FROM documentrequest";
-                        if($result = $mysqli->query($sql)){
-                            if($result->num_rows > 0){
-                                echo '<table class="table table-bordered table-striped">';
-                                    echo "<thead>";
-                                    echo "<tr>";
-                                        echo "<th>#</th>";
-                                        echo "<th>Document Type</th>";
-                                        echo "<th>First Name</th>";
-                                        echo "<th>M.I</th>";
-                                        echo "<th>Last Name</th>";
-                                        echo "<th>Address</th>";
-                                        echo "<th>Birth Date</th>";
-                                        echo "<th>Sex</th>";    
-                                        echo "<th>Email</th>";
-                                        echo "<th>Civil Status</th>";
-                                        echo "<th>Status</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = $result->fetch_array()){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['doc_id'] . "</td>";
-                                        echo "<td>" . $row['doc_documentType'] . "</td>";
-                                        echo "<td>" . $row['doc_fname'] . "</td>";
-                                        echo "<td>" . $row['doc_mi'] . "</td>";
-                                        echo "<td>" . $row['doc_lname'] . "</td>";
-                                        echo "<td>" . $row['doc_address'] . "</td>";
-                                        echo "<td>" . $row['doc_birthdate'] . "</td>";
-                                        echo "<td>" . $row['doc_sex'] . "</td>";
-                                        echo "<td>" . $row['doc_email'] . "</td>";
-                                        echo "<td>" . $row['doc_civilstatus'] . "</td>";
-                                        echo '<td> 
-                                        <form method="post">
-                                        <select class="form-select" name="status" id="status">
-                                            <option <?php if($_SESSION["status"] == "Progress") { echo "selected"; } ?> value="Progress">In Progress</option>
-                                            <option  'if($_SESSION["status"] == "Completed") { echo "selected"; }' value="Completed">Completed</option>
-                                        </select>
-                                        <button type="submit">Submit</button>
-                                    </form>
-                                        </div>
-                                        </td>';
-                                    }
-                                    echo "</tbody>";                            
-                                echo "</table>";
-                                // Free result set
-                                $result->free();
-                            } else{
-                                echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
-                            }
-                        } else{
-                            echo "Oops! Something went wrong. Please try again later.";
-                        }
-                        
-                        // Close connection
-                        $mysqli->close();
-                        ?>
+        <?php
+        // Connect to database
+
+
+        // Update status if form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $doc_id = $_POST["doc_id"];
+            $status = $_POST["status"];
+            $sql = "UPDATE documentrequest SET status='$status' WHERE doc_id='$doc_id'";
+            if ($conn->query($sql) === TRUE) {
+            
+            } else {
+                echo "Error updating status: " . $conn->error;
+            }
+        }
+
+        // Retrieve data from table
+        $sql = "SELECT * FROM documentrequest";
+        $result = $conn->query($sql);
+
+        // Display table with dropdown selection for status column
+        if ($result->num_rows > 0) {
+            echo "<table><tr><th>ID</th><th>Document Type</th><th>First Name</th><th>Last Name</th><th>Address</th><th>Birthdate</th><th>Sex</th><th>Email</th><th>Civil Status</th><th>Status</th></tr>";
+            while($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["doc_id"] . "</td><td>" . $row["doc_documentType"] . "</td><td>" . $row["doc_fname"] . "</td><td>" . $row["doc_lname"] . "</td><td>" . $row["doc_address"] . "</td><td>" . $row["doc_birthdate"] . "</td><td>" . $row["doc_sex"] . "</td><td>" . $row["doc_email"] . "</td><td>" . $row["doc_civilstatus"] . "</td><td>";
+                echo "<form method='post'>";
+                echo "<input type='hidden' name='doc_id' value='" . $row["doc_id"] . "'>";
+                echo "<select name='status'>";
+                if ($row["status"] == "in progress") {
+                    echo "<option value='in progress' selected>In Progress</option>";
+                    echo "<option value='completed'>Completed</option>";
+                } else {
+                    echo "<option value='in progress'>In Progress</option>";
+                    echo "<option value='completed' selected>Completed</option>";
+                }
+                echo "</select>";
+                echo "</td><td><input type='submit' value='Update'></td></form></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "No results";
+        }
+
+        $conn->close();
+        ?>
+
+
+
+
+
+
             </div>
         </div>
     </div>
