@@ -34,4 +34,4 @@ In this project, I was responsible for bridging a static front-end to our databa
 |------|------|
 | Sign-up | ![](screenshots/signup.jpg) |
 | FAQ | ![](screenshots/faq.jpg) |
-| Dashboard | ![](adminDash.jpg) |
+| Dashboard | ![](screenshots/adminDash.jpg) |
