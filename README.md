@@ -28,3 +28,10 @@ In this project, I was responsible for bridging a static front-end to our databa
 -Built a back-end logic layer that allows admins to update the homepage content through an administrative dashboard, and
 
 -Applied BCRYPT hashing for passwords and used prepared statements.
+
+## 📸 Screenshots
+| Feature | Preview |
+|------|------|
+| Sign-up | ![](screenshots/signup.jpg) |
+| FAQ | ![](screenshots/faq.jpg) |
+| Dashboard | ![](adminDash.jpg) |
